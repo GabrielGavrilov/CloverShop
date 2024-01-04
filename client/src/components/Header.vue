@@ -34,16 +34,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 header {
     height: 100px;
-    background-color: aqua;
+    background-color: #FFF9F9;
     display: flex;
     justify-content: center;
 }
 
 #header-content {
-    background-color: aquamarine;
     width: 90%;
     height: 100%;
     display: flex;
@@ -55,7 +54,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: red;
 }
 
 #header-left > img {
@@ -68,7 +66,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
 }
 
 #header-right {
@@ -77,7 +74,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: blue;
 }
 
 .header-link {

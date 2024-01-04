@@ -1,14 +1,16 @@
 <template>
     <div id="product">
-        <div id="product-image">
-            <img v-bind:src="require('@/assets/placeholder_small.png')">
-        </div>
-        <div id="product-title">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-        </div>
-        <div id="product-price">
-            <p>$0.00</p>
-        </div>
+        <router-link to="/product" style="color: black; text-decoration: none;">
+            <div id="product-image">
+                <img v-bind:src="require('@/assets/placeholder_small.png')">
+            </div>
+            <div id="product-title">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+            <div id="product-price">
+                <p>$0.00</p>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #product {
     width: 350px;
     margin-top: 2.5rem;
@@ -38,7 +40,7 @@ export default {
 
 #product-title {
     margin-top: .75rem;
-    font-size: 1.20rem;
+    font-size: 1.2rem;
 }
 
 #product-price {

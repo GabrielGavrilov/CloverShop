@@ -16,10 +16,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #banner {
     height: 300px;
-    background-color: purple;
     display: flex;
     justify-content: center;
     align-items: center;

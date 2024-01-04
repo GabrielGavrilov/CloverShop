@@ -27,18 +27,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #products-section {
-    background-color: aqua;
     display: flex;
     justify-content: center;
 }
 
 #product-section-content {
-    background-color: yellow;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 2.5rem;
 }
 </style>
