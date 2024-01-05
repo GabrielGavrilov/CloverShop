@@ -2,8 +2,9 @@
     <Header/>
     <div id="product">
         <div id="product-info">
-            <ProductInformation v-bind:image="require('@/assets/placeholder_small.png')"/>
+            <ProductInformation v-bind:image="require('@/assets/placeholder_small.png')" description="<p>Hello, World!</p>"/>
         </div>
+
     </div>
 </template>
 
@@ -25,10 +26,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #product-info {
     width: 90%;
     display: flex;
+    flex-direction: column;
 }
 </style>
