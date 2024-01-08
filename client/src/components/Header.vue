@@ -8,8 +8,14 @@
                 <div class="header-link">
                     <router-link style="color: black; text-decoration: none;" to="/">Home</router-link>
                 </div>
-                <div class="header-link">
-                    <router-link style="color: black; text-decoration: none;" to="/products">Products</router-link>
+                <div class="header-link dropdown-link">
+                    <!-- <router-link style="color: black; text-decoration: none;" to="/products">Shop</router-link> -->
+                    <p>Shop</p>
+                    <div class="dropdown-content">
+                        <a>Link 1</a>
+                        <a>Link 2</a>
+                        <a>Link 2</a>
+                    </div>
                 </div>
                 <div class="header-link">
                     <router-link style="color: black; text-decoration: none;" to="/about">About Us</router-link>
@@ -84,5 +90,23 @@ header {
 
 .header-link:hover {
     cursor: pointer;
+}
+
+.dropdown-link {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: purple;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-link:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
 }
 </style>
