@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser")
 const app = express()
 
 const adminRoutes = require("./routes/admin.routes")
+const apiRoutes = require("./routes/api.routes")
 
 mongoose.connect(config.DB_URI)
 .then(function() {
@@ -23,6 +24,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use("/admin", adminRoutes)
+app.use("/api", apiRoutes)
 
 app.listen(config.PORT, function() {
     console.log(`[CloverShop]: listening on port ${config.PORT}.`)

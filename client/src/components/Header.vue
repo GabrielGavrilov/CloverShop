@@ -8,13 +8,13 @@
                 <div class="header-link">
                     <router-link style="color: black; text-decoration: none;" to="/">Home</router-link>
                 </div>
-                <div class="header-link dropdown-link">
+                <div class="header-link dropdown">
                     <!-- <router-link style="color: black; text-decoration: none;" to="/products">Shop</router-link> -->
                     <p>Shop</p>
                     <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 2</a>
-                        <a>Link 2</a>
+                        <router-link v-for="category in categories" v-bind:key="category.categoryName" :to="category.categoryName">
+                            <button class="dropdown-link">{{ category.categoryName }}</button>
+                        </router-link>
                     </div>
                 </div>
                 <div class="header-link">
@@ -35,8 +35,27 @@
 </template>
 
 <script>
+import { onMounted, ref } from 'vue';
+
 export default {
-    name: "Header"
+    name: "Header",
+    setup() {
+        let categories = ref([])
+        
+        onMounted(async function() {
+            const response = await fetch("http://localhost:3000/api/categories", {
+                headers: {"Content-Type": "application/json"}
+            })
+
+            const content = await response.json()
+            console.log(content)
+            categories.value = content
+        })
+        
+        return {
+            categories
+        }
+    }
 }
 </script>
 
@@ -92,7 +111,7 @@ header {
     cursor: pointer;
 }
 
-.dropdown-link {
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -100,13 +119,32 @@ header {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: purple;
-    min-width: 160px;
     z-index: 1;
 }
 
-.dropdown-link:hover .dropdown-content {
+.dropdown:hover {
+    cursor: default;
+}
+
+.dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
 }
+
+.dropdown-link {
+    padding: .75rem 1rem;
+    border-radius: none;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 1.10rem;
+    width: 175px;
+}
+
+.dropdown-link:hover {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    cursor: pointer;
+}
+
 </style>
